@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw7tosxaqtidq"]
+
+[ext_resource type="Script" path="res://entities/StartZone.gd" id="1_iheg1"]
+[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_ho8x5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6nuq"]
+size = Vector2(96, 96)
+
+[node name="StartZone" type="Area2D"]
+position = Vector2(32, 15)
+collision_layer = 4
+script = ExtResource("1_iheg1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+scale = Vector2(1.4507, 1.51613)
+color = Color(0.521569, 0.298039, 0.25098, 1)
+polygon = PackedVector2Array(0, 0, 71, 0, 71, 62, 0, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g6nuq")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-32, -48)
+tile_set = ExtResource("2_ho8x5")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 327683, 3, 131071, 327683, 4, 196607, 327683, 5, 262143, 327683, 6, 327679, 327683, 7, 393215, 327683, 8, 0, 393219, 3, 65536, 393219, 4, 131072, 393219, 5, 196608, 393219, 6, 262144, 393219, 7, 327680, 393219, 8, 1, 458755, 3, 65537, 458755, 4, 131073, 458755, 5, 196609, 458755, 6, 262145, 458755, 7, 327681, 458755, 8, 2, 524291, 3, 65538, 524291, 4, 131074, 524291, 5, 196610, 524291, 6, 262146, 524291, 7, 327682, 524291, 8, 3, 589827, 3, 65539, 589827, 4, 131075, 589827, 5, 196611, 589827, 6, 262147, 589827, 7, 327683, 589827, 8, 4, 655363, 3, 65540, 655363, 4, 131076, 655363, 5, 196612, 655363, 6, 262148, 655363, 7, 327684, 655363, 8)

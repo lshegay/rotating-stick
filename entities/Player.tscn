@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhfus8oroousn"]
+
+[ext_resource type="Script" path="res://entities/Player.gd" id="1_jmfbo"]
+[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_fxoc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lddgn"]
+size = Vector2(78, 7)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_jmfbo")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-8, -6.5)
+tile_set = ExtResource("2_fxoc8")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 3, 3, 65535, 65539, 3, 0, 131075, 3, 1, 65539, 3, 2, 196611, 3)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_lddgn")

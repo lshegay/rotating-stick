@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b80rljogo2nyj"]
+
+[ext_resource type="Script" path="res://gui/DiedMenu.gd" id="1_lkou4"]
+[ext_resource type="FontFile" uid="uid://dc1nas4k3mxuk" path="res://assets/fonts/PeaberryBase.woff" id="2_yyn06"]
+
+[sub_resource type="Theme" id="Theme_ju6o1"]
+default_font = ExtResource("2_yyn06")
+default_font_size = 12
+
+[node name="DiedMenu" type="Node2D"]
+script = ExtResource("1_lkou4")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(56, 40)
+scale = Vector2(1, 1.11111)
+color = Color(0, 0, 0, 0.364706)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 72, 0, 72)
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Restart" type="RichTextLabel" parent="Buttons"]
+offset_left = 96.0
+offset_top = 48.0
+offset_right = 152.0
+offset_bottom = 60.0
+theme = SubResource("Theme_ju6o1")
+text = "Restart"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Exit" type="RichTextLabel" parent="Buttons"]
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 152.0
+offset_bottom = 76.0
+theme = SubResource("Theme_ju6o1")
+text = "Exit"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false

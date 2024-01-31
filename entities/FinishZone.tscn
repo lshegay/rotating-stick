@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqiw02w5r4oyi"]
+
+[ext_resource type="Script" path="res://entities/FinishZone.gd" id="1_s8v6u"]
+[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_1rihj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6nuq"]
+size = Vector2(96, 96)
+
+[node name="FinishZone" type="Area2D"]
+position = Vector2(443, 63)
+collision_layer = 4
+script = ExtResource("1_s8v6u")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+scale = Vector2(1.4507, 1.51613)
+color = Color(0.521569, 0.298039, 0.25098, 1)
+polygon = PackedVector2Array(0, 0, 71, 0, 71, 62, 0, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g6nuq")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-32, -48)
+tile_set = ExtResource("2_1rihj")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 720899, 3, 131071, 720899, 4, 196607, 720899, 5, 262143, 720899, 6, 327679, 720899, 7, 393215, 720899, 8, 0, 786435, 3, 65536, 786435, 4, 131072, 786435, 5, 196608, 786435, 6, 262144, 786435, 7, 327680, 786435, 8, 1, 851971, 3, 65537, 851971, 4, 131073, 851971, 5, 196609, 851971, 6, 262145, 851971, 7, 327681, 851971, 8, 2, 917507, 3, 65538, 917507, 4, 131074, 917507, 5, 196610, 917507, 6, 262146, 917507, 7, 327682, 917507, 8, 3, 983043, 3, 65539, 983043, 4, 131075, 983043, 5, 196611, 983043, 6, 262147, 983043, 7, 327683, 983043, 8, 4, 1048579, 3, 65540, 1048579, 4, 131076, 1048579, 5, 196612, 1048579, 6, 262148, 1048579, 7, 327684, 1048579, 8)
