@@ -27,6 +27,8 @@ var finished_move_to: Vector2
 var is_died = false
 
 func get_damage():
+  $HurtAudio.play()
+
   if invincible or in_safe_zone: return
 
   invincible = true

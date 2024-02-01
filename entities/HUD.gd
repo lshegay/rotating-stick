@@ -8,6 +8,8 @@ func _ready():
   $DiedMenu.visible = false
   $FinishedMenu.visible = false
 
+  $Transition.start_end_transition()
+
 func render_healthbar(value: int):
   health = value
   for i in range(0, 3):

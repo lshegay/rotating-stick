@@ -1,5 +1,7 @@
 extends Menu
 
+@export var transition: Transition
+
 var current_level: StringName
 
 func _ready():
@@ -14,8 +16,11 @@ func _process(delta):
 
   if Input.is_action_just_pressed("z"):
     if current_item_node.text == 'Next Level':
-      get_tree().change_scene_to_file("res://scenes/levels/Level%s.tscn" % (int(current_level.replace('Level', '')) + 1))
+      transition.start_transition(func():
+        get_tree().change_scene_to_file("res://scenes/levels/Level%s.tscn" % (int(current_level.replace('Level', '')) + 1))
+      )
     elif current_item_node.text == 'Restart':
-      get_tree().reload_current_scene()
+      transition.start_transition(func(): get_tree().reload_current_scene())
     elif current_item_node.text == 'Exit':
       pass
+

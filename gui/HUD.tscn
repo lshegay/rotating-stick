@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://civvkbqah8wwy"]
+
+[ext_resource type="Script" path="res://entities/HUD.gd" id="1_4q5wg"]
+[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_xl6ds"]
+[ext_resource type="PackedScene" uid="uid://b80rljogo2nyj" path="res://gui/DiedMenu.tscn" id="3_thdtx"]
+[ext_resource type="PackedScene" uid="uid://cvqtkrgdyf8e4" path="res://gui/FinishedMenu.tscn" id="4_4b1ri"]
+[ext_resource type="Script" path="res://gui/FinishedMenu.gd" id="5_4ppqt"]
+[ext_resource type="PackedScene" uid="uid://yp713oagyxrr" path="res://gui/Transition.tscn" id="6_l6r2y"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_4q5wg")
+
+[node name="Health" type="TileMap" parent="."]
+position = Vector2(41, 137)
+tile_set = ExtResource("2_xl6ds")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262147, 11, 1, 327683, 11, 2, 393219, 11)
+
+[node name="Avatar" type="TileMap" parent="."]
+tile_set = ExtResource("2_xl6ds")
+format = 2
+layer_0/tile_data = PackedInt32Array(458752, 65539, 9, 524288, 65539, 10, 589824, 65539, 11, 458753, 131075, 9, 524289, 131075, 10, 589825, 131075, 11, 458754, 196611, 9, 524290, 196611, 10, 589826, 196611, 11)
+
+[node name="DiedMenu" parent="." node_paths=PackedStringArray("transition") instance=ExtResource("3_thdtx")]
+visible = false
+transition = NodePath("../Transition")
+
+[node name="FinishedMenu" parent="." node_paths=PackedStringArray("transition") instance=ExtResource("4_4b1ri")]
+visible = false
+script = ExtResource("5_4ppqt")
+transition = NodePath("../Transition")
+
+[node name="Transition" parent="." instance=ExtResource("6_l6r2y")]

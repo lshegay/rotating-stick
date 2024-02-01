@@ -1,5 +1,7 @@
 extends Menu
 
+@export var transition: Transition
+
 func _process(delta):
   if visible == false: return
 
@@ -7,6 +9,6 @@ func _process(delta):
 
   if Input.is_action_just_pressed("z"):
     if current_item_node.text == 'Restart':
-      get_tree().reload_current_scene()
+      transition.start_transition(func(): get_tree().reload_current_scene())
     elif current_item_node.text == 'Exit':
       pass

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b80rljogo2nyj"]
+[gd_scene load_steps=5 format=3 uid="uid://b80rljogo2nyj"]
 
 [ext_resource type="Script" path="res://gui/DiedMenu.gd" id="1_lkou4"]
 [ext_resource type="FontFile" uid="uid://dc1nas4k3mxuk" path="res://assets/fonts/PeaberryBase.woff" id="2_yyn06"]
+[ext_resource type="AudioStream" uid="uid://dvmaf0idw5m0t" path="res://assets/sounds/click.wav" id="3_mtahw"]
 
 [sub_resource type="Theme" id="Theme_ju6o1"]
 default_font = ExtResource("2_yyn06")
@@ -41,3 +42,7 @@ fit_content = true
 scroll_active = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mtahw")
+volume_db = 3.0

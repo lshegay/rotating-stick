@@ -13,12 +13,14 @@ func _process(delta):
   if Input.is_action_just_pressed("up"):
     current_item = max(current_item - 1, 0)
     render_menu()
+    $ClickAudio.play()
   elif Input.is_action_just_pressed("down"):
     current_item = min(current_item + 1, $Buttons.get_children().size() - 1)
     render_menu()
+    $ClickAudio.play()
 
   if Input.is_action_just_pressed("z"):
-    pass
+    $ClickAudio.play()
 
 func render_menu():
   current_item_node = $Buttons.get_children()[current_item]

@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmkdehmf8uidb"]
+[gd_scene load_steps=7 format=3 uid="uid://dmkdehmf8uidb"]
 
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="1_r7827"]
 [ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/StartZone.tscn" id="2_kq1xc"]
 [ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/FinishZone.tscn" id="3_588w7"]
 [ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://entities/Camera.tscn" id="4_q81i7"]
 [ext_resource type="PackedScene" uid="uid://dhfus8oroousn" path="res://entities/Player.tscn" id="5_fkiyw"]
-[ext_resource type="Script" path="res://entities/HUD.gd" id="6_4kgnc"]
-[ext_resource type="PackedScene" uid="uid://b80rljogo2nyj" path="res://gui/DiedMenu.tscn" id="7_nl2bs"]
-[ext_resource type="PackedScene" uid="uid://cvqtkrgdyf8e4" path="res://gui/FinishedMenu.tscn" id="8_pdgei"]
-[ext_resource type="Script" path="res://gui/FinishedMenu.gd" id="9_yjko5"]
+[ext_resource type="PackedScene" uid="uid://civvkbqah8wwy" path="res://gui/HUD.tscn" id="6_bih0n"]
 
 [node name="Level0" type="Node2D"]
 
@@ -37,26 +34,7 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("5_fkiyw")]
 position = Vector2(79, 64)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("6_4kgnc")
-
-[node name="Health" type="TileMap" parent="HUD"]
-position = Vector2(41, 137)
-tile_set = ExtResource("1_r7827")
-format = 2
-layer_0/tile_data = PackedInt32Array(0, 262147, 11, 1, 327683, 11, 2, 393219, 11)
-
-[node name="Avatar" type="TileMap" parent="HUD"]
-tile_set = ExtResource("1_r7827")
-format = 2
-layer_0/tile_data = PackedInt32Array(458752, 65539, 9, 524288, 65539, 10, 589824, 65539, 11, 458753, 131075, 9, 524289, 131075, 10, 589825, 131075, 11, 458754, 196611, 9, 524290, 196611, 10, 589826, 196611, 11)
-
-[node name="DiedMenu" parent="HUD" instance=ExtResource("7_nl2bs")]
-visible = false
-
-[node name="FinishedMenu" parent="HUD" instance=ExtResource("8_pdgei")]
-visible = false
-script = ExtResource("9_yjko5")
+[node name="HUD" parent="." instance=ExtResource("6_bih0n")]
 
 [connection signal="collided_wall" from="Player" to="Camera" method="on_player_collided_wall"]
 [connection signal="died" from="Player" to="HUD" method="on_player_died"]
