@@ -1,8 +1,17 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cvb8htd1db38o"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://cvb8htd1db38o"]
 
 [ext_resource type="Texture2D" uid="uid://b5ord7ycrw3he" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="1_gfir1"]
 [ext_resource type="Texture2D" uid="uid://ceo085cglq75x" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="2_e31ma"]
 [ext_resource type="Texture2D" uid="uid://sm4nfvomomkm" path="res://assets/main-tileset.png" id="3_bbnv8"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_gbe66"]
+tile_data = PackedInt32Array(0, 524291, 10, 65536, 524291, 11, 1, 589827, 10, 65537, 589827, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_eyerx"]
+tile_data = PackedInt32Array(0, 655363, 10, 65536, 655363, 11, 1, 720899, 10, 65537, 720899, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mp251"]
+tile_data = PackedInt32Array(0, 786435, 10, 65536, 786435, 11, 1, 851971, 10, 65537, 851971, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js1xh"]
 resource_name = "hills"
@@ -649,9 +658,48 @@ texture = ExtResource("3_bbnv8")
 6:11/0 = 0
 6:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:11/0/physics_layer_0/angular_velocity = 0.0
+8:11/0 = 0
+8:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:11/0/physics_layer_0/angular_velocity = 0.0
+9:11/0 = 0
+9:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:11/0/physics_layer_0/angular_velocity = 0.0
+10:11/0 = 0
+10:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:11/0/physics_layer_0/angular_velocity = 0.0
+11:11/0 = 0
+11:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:11/0/physics_layer_0/angular_velocity = 0.0
+12:11/0 = 0
+12:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:11/0/physics_layer_0/angular_velocity = 0.0
+13:10/0 = 0
+13:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+13:10/0/physics_layer_0/angular_velocity = 0.0
+12:10/0 = 0
+12:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:10/0/physics_layer_0/angular_velocity = 0.0
+11:10/0 = 0
+11:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:10/0/physics_layer_0/angular_velocity = 0.0
+10:10/0 = 0
+10:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:10/0/physics_layer_0/angular_velocity = 0.0
+9:10/0 = 0
+9:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:10/0/physics_layer_0/angular_velocity = 0.0
+8:10/0 = 0
+8:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:10/0/physics_layer_0/angular_velocity = 0.0
+13:11/0 = 0
+13:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+13:11/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 physics_layer_0/collision_layer = 2
 sources/1 = SubResource("TileSetAtlasSource_js1xh")
 sources/2 = SubResource("TileSetAtlasSource_msjf7")
 sources/3 = SubResource("TileSetAtlasSource_whgxv")
+pattern_0 = SubResource("TileMapPattern_gbe66")
+pattern_1 = SubResource("TileMapPattern_eyerx")
+pattern_2 = SubResource("TileMapPattern_mp251")

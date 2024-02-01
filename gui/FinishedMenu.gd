@@ -22,5 +22,7 @@ func _process(delta):
     elif current_item_node.text == 'Restart':
       transition.start_transition(func(): get_tree().reload_current_scene())
     elif current_item_node.text == 'Exit':
-      pass
+      transition.start_transition(func():
+        get_tree().change_scene_to_file("res://scenes/Levels.tscn")
+      )
 

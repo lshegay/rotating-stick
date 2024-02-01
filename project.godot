@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="rotating stick"
-run/main_scene="res://scenes/levels/Level0.tscn"
+run/main_scene="res://scenes/Levels.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LevelsState="*res://gui/levels/LevelsState.gd"
 
 [display]
 
