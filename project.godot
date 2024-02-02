@@ -73,6 +73,7 @@ down={
 2d_physics/layer_3="start_zone"
 2d_physics/layer_4="health_zone"
 2d_physics/layer_5="finish_zone"
+2d_physics/layer_6="springs"
 
 [rendering]
 

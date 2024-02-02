@@ -20,11 +20,52 @@ var health = 3
 
 var invincibility_timeout = 0.2
 var invincible = false
+var springing = false
 var in_safe_zone = false
 var is_finished = false
 var finished_move_to: Vector2
 
 var is_died = false
+
+func _physics_process(delta):
+  if is_died: return
+
+  if is_finished:
+    rotation_degrees += 800 * delta
+    if finished_move_to:
+      position = position.lerp(finished_move_to, 0.1)
+    return
+
+  var input_direction = Input.get_vector("left", "right", "up", "down")
+
+  angular_velocity += rotation_direction * rotation_speed * delta
+  angular_velocity = clamp(
+    angular_velocity,
+    -max_angular_velocity,
+    max_angular_velocity
+  )
+
+  var collision = move_and_collide(velocity * delta)
+  if collision:
+    if PhysicsServer2D.body_get_collision_layer(collision.get_collider_rid()) == 2:
+      angular_velocity = -sign(angular_velocity) * angular_knockback_velocity
+
+      var direction = collision.get_position() - position
+      knockback = -direction.normalized() * knockback_velocity
+
+      collided_wall.emit()
+      get_damage()
+
+  rotation_degrees += angular_velocity * delta
+
+  if input_direction.length() > 0:
+    velocity = input_direction * speed
+  else:
+    velocity = velocity.lerp(Vector2.ZERO, 0.1)
+
+  velocity += knockback
+
+  knockback = Vector2.ZERO
 
 func get_damage():
   $HurtAudio.play()
@@ -59,41 +100,11 @@ func set_finished(move_to: Vector2):
   finished_move_to = move_to
   finished.emit()
 
-func _physics_process(delta):
-  if is_died: return
+func springed():
+  if springing: return
+  rotation_direction = -rotation_direction
+  angular_velocity = -angular_velocity
+  springing = true
 
-  if is_finished:
-    rotation_degrees += 800 * delta
-    if finished_move_to:
-      position = position.lerp(finished_move_to, 0.1)
-    return
-
-  var input_direction = Input.get_vector("left", "right", "up", "down")
-
-  angular_velocity += rotation_direction * rotation_speed * delta
-  angular_velocity = clamp(
-    angular_velocity,
-    -max_angular_velocity,
-    max_angular_velocity
-  )
-
-  var collision = move_and_collide(velocity * delta)
-  if collision:
-    angular_velocity = -sign(angular_velocity) * angular_knockback_velocity
-
-    var direction = collision.get_position() - position
-    knockback = -direction.normalized() * knockback_velocity
-
-    collided_wall.emit()
-    get_damage()
-
-  rotation_degrees += angular_velocity * delta
-
-  if input_direction.length() > 0:
-    velocity = input_direction * speed
-  else:
-    velocity = velocity.lerp(Vector2.ZERO, 0.1)
-
-  velocity += knockback
-
-  knockback = Vector2.ZERO
+  await get_tree().create_timer(0.5).timeout
+  springing = false
