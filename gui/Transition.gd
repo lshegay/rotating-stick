@@ -45,6 +45,7 @@ func start_transition(action: Callable = func(): return):
   callback = action
   transition = true
   circles_radius = 0
+  $AudioIntro.play()
   queue_redraw()
 
 
@@ -52,4 +53,5 @@ func start_end_transition(action: Callable = func(): return):
   callback = action
   end_transition = true
   circles_radius = 24
+  $AudioOutro.play()
   queue_redraw()

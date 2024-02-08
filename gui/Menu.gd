@@ -3,12 +3,15 @@ extends Node2D
 
 var current_item = 0
 var current_item_node: RichTextLabel
+var start_pos = Vector2.ZERO
+var controls = true
 
 func _ready():
+  start_pos = $ButtonSelected.position
   render_menu()
 
 func _process(delta):
-  if visible == false: return
+  if not controls or not visible: return
 
   if Input.is_action_just_pressed("up"):
     current_item = max(current_item - 1, 0)
@@ -19,20 +22,21 @@ func _process(delta):
     render_menu()
     $ClickAudio.play()
 
-  if Input.is_action_just_pressed("z"):
-    $ClickAudio.play()
+  """ if Input.is_action_just_pressed("z"):
+    $ClickAudio.play() """
 
 func render_menu():
   current_item_node = $Buttons.get_children()[current_item]
 
-  var i = 0
-  for node in $Buttons.get_children():
-    if not node is RichTextLabel:
-      continue
+  $ButtonSelected.position.y = start_pos.y + current_item * 16
 
-    if i == current_item:
-      node.remove_theme_color_override('default_color')
-    else:
-      node.add_theme_color_override('default_color', Color(1, 1, 1, 0.7))
+func toggle():
+  if visible: close()
+  else: open()
 
-    i += 1
+func open():
+  $ButtonSelected.position.y = start_pos.y
+  visible = true
+
+func close():
+  visible = false

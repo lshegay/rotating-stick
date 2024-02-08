@@ -13,7 +13,7 @@ func _ready():
 
   render_levels()
 
-  $Cursor.position.x = 50 + cursor_position.x * 48
+  $Cursor.position.x = 48 + cursor_position.x * 48
   $Cursor.position.y = 32 + cursor_position.y * 48
 
   $HUD.get_node('Transition').start_end_transition()

@@ -10,11 +10,13 @@ func _ready():
   current_level = get_tree().current_scene.name
 
 func _process(delta):
-  if visible == false: return
+  if not controls or not visible: return
 
   super._process(delta)
 
   if Input.is_action_just_pressed("z"):
+    controls = false
+
     if current_item_node.text == 'Next Level':
       transition.start_transition(func():
         get_tree().change_scene_to_file("res://scenes/levels/Level%s.tscn" % (int(current_level.replace('Level', '')) + 1))

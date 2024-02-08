@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvqtkrgdyf8e4"]
+[gd_scene load_steps=6 format=3 uid="uid://b80rljogo2nyj"]
 
-[ext_resource type="Script" path="res://gui/PauseMenu.gd" id="1_ay0fl"]
-[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_gy6hi"]
-[ext_resource type="FontFile" uid="uid://d1bjfonhihmmj" path="res://assets/fonts/Bongo-8 Mono.ttf" id="3_w6glx"]
-[ext_resource type="AudioStream" uid="uid://dqhjbx7uvqeg4" path="res://assets/sounds/keyboard.wav" id="4_noa4a"]
+[ext_resource type="Script" path="res://gui/PauseMenu.gd" id="1_07upf"]
+[ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_sy6fb"]
+[ext_resource type="FontFile" uid="uid://d1bjfonhihmmj" path="res://assets/fonts/Bongo-8 Mono.ttf" id="3_51ad0"]
+[ext_resource type="AudioStream" uid="uid://dqhjbx7uvqeg4" path="res://assets/sounds/keyboard.wav" id="4_dhf4w"]
 
 [sub_resource type="Theme" id="Theme_ju6o1"]
-default_font = ExtResource("3_w6glx")
+default_font = ExtResource("3_51ad0")
 default_font_size = 8
 
-[node name="FinishedMenu" type="Node2D"]
-script = ExtResource("1_ay0fl")
+[node name="PauseMenu" type="Node2D"]
+script = ExtResource("1_07upf")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_gy6hi")
+tile_set = ExtResource("2_sy6fb")
 format = 2
 layer_0/tile_data = PackedInt32Array(131075, 0, 0, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 393219, 0, 1, 458755, 0, 2, 458756, 65536, 2, 458757, 65536, 2, 458758, 65536, 2, 458759, 65536, 2, 458760, 65536, 2, 458761, 65536, 2, 458762, 65536, 2, 458763, 131072, 2, 393227, 131072, 1, 327691, 131072, 1, 262155, 131072, 1, 196619, 131072, 1, 131083, 131072, 0, 131082, 65536, 0, 131081, 65536, 0, 131080, 65536, 0, 131079, 65536, 0, 131078, 65536, 0, 131077, 65536, 0, 131076, 65536, 0, 327688, 65536, 1, 262152, 65536, 1, 196616, 65536, 1, 196615, 65536, 1, 196614, 65536, 1, 196613, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 327684, 65536, 1, 393220, 65536, 1, 393221, 65536, 1, 327685, 65536, 1, 262149, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 393223, 65536, 1, 327687, 65536, 1, 262151, 65536, 1, 393224, 65536, 1, 393225, 65536, 1, 327689, 65536, 1, 262153, 65536, 1, 196617, 65536, 1, 196618, 65536, 1, 262154, 65536, 1, 327690, 65536, 1, 393226, 65536, 1)
 
@@ -25,24 +25,11 @@ polygon = PackedVector2Array(0, 0, 64, 0, 64, 8, 0, 8)
 
 [node name="Buttons" type="Node2D" parent="."]
 
-[node name="Next Level" type="RichTextLabel" parent="Buttons"]
-offset_left = 80.0
-offset_top = 56.0
-offset_right = 160.0
-offset_bottom = 64.0
-theme = SubResource("Theme_ju6o1")
-theme_override_colors/font_shadow_color = Color(0.270588, 0.258824, 0.309804, 1)
-text = "Next Level"
-fit_content = true
-scroll_active = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
 [node name="Restart" type="RichTextLabel" parent="Buttons"]
 offset_left = 80.0
-offset_top = 72.0
+offset_top = 56.0
 offset_right = 136.0
-offset_bottom = 80.0
+offset_bottom = 68.0
 theme = SubResource("Theme_ju6o1")
 theme_override_colors/font_shadow_color = Color(0.270588, 0.258824, 0.309804, 1)
 text = "Restart"
@@ -53,9 +40,9 @@ drag_and_drop_selection_enabled = false
 
 [node name="Exit" type="RichTextLabel" parent="Buttons"]
 offset_left = 80.0
-offset_top = 88.0
-offset_right = 112.0
-offset_bottom = 96.0
+offset_top = 72.0
+offset_right = 136.0
+offset_bottom = 84.0
 theme = SubResource("Theme_ju6o1")
 theme_override_colors/font_shadow_color = Color(0.270588, 0.258824, 0.309804, 1)
 text = "Exit"
@@ -65,5 +52,5 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_noa4a")
+stream = ExtResource("4_dhf4w")
 volume_db = -20.0

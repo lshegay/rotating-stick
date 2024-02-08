@@ -12,9 +12,9 @@ var rotation_direction = 1
 var knockback_velocity = 200
 var knockback = Vector2.ZERO
 
-var angular_velocity = 100
+var angular_velocity = 70
 var angular_knockback_velocity = 800
-var max_angular_velocity = 100
+var max_angular_velocity = 70
 
 var health = 3
 
@@ -26,15 +26,16 @@ var is_finished = false
 var finished_move_to: Vector2
 
 var is_died = false
+var no_controls = false
 
 func _physics_process(delta):
-  if is_died: return
-
   if is_finished:
     rotation_degrees += 800 * delta
     if finished_move_to:
       position = position.lerp(finished_move_to, 0.1)
     return
+
+  if no_controls or is_died: return
 
   var input_direction = Input.get_vector("left", "right", "up", "down")
 
@@ -61,7 +62,7 @@ func _physics_process(delta):
   if input_direction.length() > 0:
     velocity = input_direction * speed
   else:
-    velocity = velocity.lerp(Vector2.ZERO, 0.1)
+    velocity = velocity.lerp(Vector2.ZERO, 0.5)
 
   velocity += knockback
 
@@ -91,11 +92,13 @@ func die():
   $Collision.disabled = true
   in_safe_zone = true
   is_died = true
+  no_controls = true
   died.emit()
 
 func set_finished(move_to: Vector2):
   is_finished = true
   in_safe_zone = true
+  no_controls = true
   $Collision.disabled = true
   finished_move_to = move_to
   finished.emit()

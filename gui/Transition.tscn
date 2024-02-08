@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://yp713oagyxrr"]
+[gd_scene load_steps=4 format=3 uid="uid://yp713oagyxrr"]
 
 [ext_resource type="Script" path="res://gui/Transition.gd" id="1_3qf0e"]
+[ext_resource type="AudioStream" uid="uid://c5km3otwmv73k" path="res://assets/sounds/transition.wav" id="2_noap4"]
+[ext_resource type="AudioStream" uid="uid://bums7v5tucmu3" path="res://assets/sounds/transition_outro.wav" id="3_isnls"]
 
 [node name="Transition" type="Node2D"]
 script = ExtResource("1_3qf0e")
+
+[node name="AudioIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_noap4")
+volume_db = -20.0
+
+[node name="AudioOutro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_isnls")
+volume_db = -20.0
