@@ -10,6 +10,7 @@ func _ready():
   $PauseMenu.visible = false
   $FinishedMenu.visible = false
   $PainAvatar.visible = false
+  $AudioTrack.play()
 
   $Transition.start_end_transition()
 
@@ -48,6 +49,7 @@ func on_player_died():
 
   $Avatar.visible = false
   $PainAvatar.visible = true
+  $AudioTrack.stop()
 
 func on_player_finished():
   $FinishedMenu.visible = true
@@ -55,6 +57,7 @@ func on_player_finished():
 
   $Avatar.visible = false
   $WinAvatar.visible = true
+  $AudioTrack.stop()
 
 func on_player_collided_wall():
   avatar_pain_animate()

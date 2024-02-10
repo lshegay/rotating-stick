@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://civvkbqah8wwy"]
+[gd_scene load_steps=10 format=3 uid="uid://civvkbqah8wwy"]
 
 [ext_resource type="Script" path="res://entities/HUD.gd" id="1_4q5wg"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_xl6ds"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://yp713oagyxrr" path="res://gui/Transition.tscn" id="6_l6r2y"]
 [ext_resource type="AudioStream" uid="uid://dr5aieik13tef" path="res://assets/sounds/loose2.wav" id="7_xplxt"]
 [ext_resource type="AudioStream" uid="uid://cmd7p2pt7nsev" path="res://assets/sounds/win.wav" id="8_4rq4w"]
+[ext_resource type="AudioStream" uid="uid://d1o1h237iojws" path="res://assets/sounds/audio1.ogg" id="9_4wjf1"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_4q5wg")
@@ -56,3 +57,6 @@ volume_db = -12.0
 [node name="AudioWin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_4rq4w")
 volume_db = -12.0
+
+[node name="AudioTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4wjf1")
