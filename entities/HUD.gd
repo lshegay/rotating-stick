@@ -14,7 +14,7 @@ func _ready():
 
   $Transition.start_end_transition()
 
-func _process(delta):
+func _process(_delta):
   if Input.is_action_just_pressed('x') and !player.is_died:
     $PauseMenu.toggle()
     player.no_controls = $PauseMenu.visible
@@ -39,25 +39,30 @@ func avatar_pain_animate():
   $Avatar.visible = true
   $PainAvatar.visible = false
 
-func on_player_health_changed(value: int, previous: int):
+func on_player_health_changed(value: int, _previous: int):
   render_healthbar(value)
 
 func on_player_died():
   $AvatarTimer.stop()
-  $PauseMenu.visible = true
   $AudioLoose.play()
 
   $Avatar.visible = false
   $PainAvatar.visible = true
   $AudioTrack.stop()
 
+  await get_tree().create_timer(1).timeout
+
+  $PauseMenu.visible = true
+
 func on_player_finished():
-  $FinishedMenu.visible = true
   $AudioWin.play()
 
   $Avatar.visible = false
   $WinAvatar.visible = true
   $AudioTrack.stop()
+
+  await get_tree().create_timer(0.7).timeout
+  $FinishedMenu.visible = true
 
 func on_player_collided_wall():
   avatar_pain_animate()

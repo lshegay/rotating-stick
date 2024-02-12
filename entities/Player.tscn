@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhfus8oroousn"]
+[gd_scene load_steps=6 format=3 uid="uid://dhfus8oroousn"]
 
 [ext_resource type="Script" path="res://entities/Player.gd" id="1_jmfbo"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_fxoc8"]
@@ -6,6 +6,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lddgn"]
 size = Vector2(78, 7)
+
+[sub_resource type="Curve" id="Curve_u7d7c"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 7.22543), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
@@ -24,3 +29,45 @@ shape = SubResource("RectangleShape2D_lddgn")
 
 [node name="HurtAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qu3lw")
+
+[node name="PainParticles" type="CPUParticles2D" parent="."]
+visible = false
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 0.7
+explosiveness = 0.86
+lifetime_randomness = 0.6
+emission_shape = 1
+emission_sphere_radius = 0.01
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = 300.0
+radial_accel_max = 300.0
+damping_min = 100.0
+damping_max = 100.0
+damping_curve = SubResource("Curve_u7d7c")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.282353, 0.266667, 0.32549, 1)
+
+[node name="DieParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.6
+emission_shape = 1
+emission_sphere_radius = 0.01
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = 300.0
+radial_accel_max = 300.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.282353, 0.266667, 0.32549, 1)

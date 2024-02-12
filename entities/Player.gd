@@ -57,6 +57,8 @@ func _physics_process(delta):
       collided_wall.emit()
       get_damage()
 
+      make_particles(collision.get_position())
+
   rotation_degrees += angular_velocity * delta
 
   if input_direction.length() > 0:
@@ -95,6 +97,8 @@ func die():
   no_controls = true
   died.emit()
 
+  $DieParticles.emitting = true
+
 func set_finished(move_to: Vector2):
   is_finished = true
   in_safe_zone = true
@@ -111,3 +115,15 @@ func springed():
 
   await get_tree().create_timer(0.5).timeout
   springing = false
+
+func make_particles(pos: Vector2):
+  var particles: CPUParticles2D = $PainParticles.duplicate()
+
+  particles.position = pos
+  particles.visible = true
+  particles.emitting = true
+  get_parent().add_child(particles)
+
+  await particles.finished
+  get_parent().remove_child(particles)
+  particles.queue_free()

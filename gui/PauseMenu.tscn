@@ -1,13 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://b80rljogo2nyj"]
+[gd_scene load_steps=10 format=3 uid="uid://b80rljogo2nyj"]
 
 [ext_resource type="Script" path="res://gui/PauseMenu.gd" id="1_07upf"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_sy6fb"]
 [ext_resource type="FontFile" uid="uid://d1bjfonhihmmj" path="res://assets/fonts/Bongo-8 Mono.ttf" id="3_51ad0"]
 [ext_resource type="AudioStream" uid="uid://dqhjbx7uvqeg4" path="res://assets/sounds/keyboard.wav" id="4_dhf4w"]
+[ext_resource type="Texture2D" uid="uid://btruh0v6vfkwn" path="res://assets/keyboard.png" id="5_kq6u6"]
 
 [sub_resource type="Theme" id="Theme_ju6o1"]
 default_font = ExtResource("3_51ad0")
 default_font_size = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaeh5"]
+atlas = ExtResource("5_kq6u6")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q62dv"]
+atlas = ExtResource("5_kq6u6")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etvv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaeh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q62dv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="PauseMenu" type="Node2D"]
 script = ExtResource("1_07upf")
@@ -54,3 +77,9 @@ drag_and_drop_selection_enabled = false
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_dhf4w")
 volume_db = -20.0
+
+[node name="KeyboardHelper" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(216, 144)
+sprite_frames = SubResource("SpriteFrames_etvv5")
+autoplay = "default"

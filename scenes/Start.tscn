@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://bifukh5ajn4uj"]
+
+[ext_resource type="Script" path="res://scenes/Start.gd" id="1_wb6vk"]
+[ext_resource type="Texture2D" uid="uid://cci84uhfcmtm3" path="res://assets/logo.png" id="2_3kwce"]
+[ext_resource type="PackedScene" uid="uid://yp713oagyxrr" path="res://gui/Transition.tscn" id="3_i4trj"]
+[ext_resource type="AudioStream" uid="uid://pqil7wdoibua" path="res://assets/sounds/menu.ogg" id="4_t8fl6"]
+[ext_resource type="Texture2D" uid="uid://btruh0v6vfkwn" path="res://assets/keyboard.png" id="5_qthpi"]
+[ext_resource type="FontFile" uid="uid://d1bjfonhihmmj" path="res://assets/fonts/Bongo-8 Mono.ttf" id="6_fwmdv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaeh5"]
+atlas = ExtResource("5_qthpi")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q62dv"]
+atlas = ExtResource("5_qthpi")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dbig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaeh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q62dv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="Theme" id="Theme_g06ky"]
+default_font = ExtResource("6_fwmdv")
+default_font_size = 8
+
+[sub_resource type="Animation" id="Animation_1d5ex"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7iebv"]
+_data = {
+"new_animation": SubResource("Animation_1d5ex")
+}
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_wb6vk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.203922, 0.2, 0.227451, 1)
+polygon = PackedVector2Array(0, 0, 0, 160, 240, 160, 240, 0)
+
+[node name="Text" type="Node2D" parent="."]
+visible = false
+
+[node name="KeyboardHelper" type="AnimatedSprite2D" parent="Text"]
+position = Vector2(108, 123)
+sprite_frames = SubResource("SpriteFrames_3dbig")
+autoplay = "default"
+
+[node name="Help" type="RichTextLabel" parent="Text"]
+offset_left = 58.0
+offset_top = 119.0
+offset_right = 99.0
+offset_bottom = 127.0
+theme = SubResource("Theme_g06ky")
+theme_override_colors/font_shadow_color = Color(0.270588, 0.258824, 0.309804, 1)
+text = "Press"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Help2" type="RichTextLabel" parent="Text"]
+offset_left = 118.0
+offset_top = 119.0
+offset_right = 182.0
+offset_bottom = 127.0
+theme = SubResource("Theme_g06ky")
+theme_override_colors/font_shadow_color = Color(0.270588, 0.258824, 0.309804, 1)
+text = "to start"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text"]
+libraries = {
+"": SubResource("AnimationLibrary_7iebv")
+}
+autoplay = "new_animation"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(120, -32)
+texture = ExtResource("2_3kwce")
+
+[node name="Transition" parent="." instance=ExtResource("3_i4trj")]
+
+[node name="AudioTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t8fl6")
