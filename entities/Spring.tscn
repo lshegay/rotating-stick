@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7dpho28qilem"]
+[gd_scene load_steps=11 format=3 uid="uid://c7dpho28qilem"]
 
 [ext_resource type="Script" path="res://entities/Spring.gd" id="1_silyb"]
 [ext_resource type="Texture2D" uid="uid://sm4nfvomomkm" path="res://assets/main-tileset.png" id="2_e83kd"]
+[ext_resource type="AudioStream" uid="uid://c73fns41krxya" path="res://assets/sounds/spring.mp3" id="3_r8lch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ceid7"]
 atlas = ExtResource("2_e83kd")
@@ -74,3 +75,7 @@ collision_layer = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_l5fd2")
+
+[node name="AudioSpring" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_r8lch")
+volume_db = -7.0

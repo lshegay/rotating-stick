@@ -10,9 +10,11 @@ func on_body_entered(body: Node2D):
     return
 
   body.in_safe_zone = true
+  body.animation_changed = true
 
 func on_body_exited(body: Node2D):
   if not body is Player:
     return
 
   body.in_safe_zone = false
+  body.animation_changed = true

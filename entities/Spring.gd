@@ -11,6 +11,7 @@ func on_body_entered(body: Node2D):
 
   $Sprite.animation = 'springed';
   $Sprite.play()
+  $AudioSpring.play()
   body.springed()
 
 func on_body_exited(body: Node2D):

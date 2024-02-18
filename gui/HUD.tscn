@@ -37,6 +37,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(458752, 262147, 12, 524288, 262147, 13, 589824, 262147, 14, 458753, 327683, 12, 524289, 327683, 13, 589825, 327683, 14, 458754, 393219, 12, 524290, 393219, 13, 589826, 393219, 14)
 
 [node name="PauseMenu" parent="." node_paths=PackedStringArray("transition") instance=ExtResource("3_lfjch")]
+visible = false
 transition = NodePath("../Transition")
 
 [node name="FinishedMenu" parent="." node_paths=PackedStringArray("transition") instance=ExtResource("4_4b1ri")]

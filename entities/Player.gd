@@ -30,7 +30,7 @@ var no_controls = false
 
 func _physics_process(delta):
   if is_finished:
-    rotation_degrees += 800 * delta
+    rotation_degrees += rotation_direction * 800 * delta
     if finished_move_to:
       position = position.lerp(finished_move_to, 0.1)
     return
@@ -70,6 +70,16 @@ func _physics_process(delta):
 
   knockback = Vector2.ZERO
 
+var animation_changed = false
+
+func _process(_delta):
+  if not animation_changed: return
+
+  if in_safe_zone:
+    invicible_animation()
+  else:
+    get_default_animation()
+
 func get_damage():
   $HurtAudio.play()
 
@@ -88,6 +98,38 @@ func get_damage():
 
   modulate.a = 1
   invincible = false
+
+func invicible_animation():
+  if not in_safe_zone: return
+  animation_changed = false
+
+  $TileMap.set_cell(0, Vector2(-2, 0), 3, Vector2i(0, 6))
+  $TileMap.set_cell(0, Vector2(-1, 0), 3, Vector2i(1, 6))
+  $TileMap.set_cell(0, Vector2(0, 0), 3, Vector2i(2, 6))
+  $TileMap.set_cell(0, Vector2(1, 0), 3, Vector2i(1, 6))
+  $TileMap.set_cell(0, Vector2(2, 0), 3, Vector2i(3, 6))
+
+  await get_tree().create_timer(0.1).timeout
+  if not in_safe_zone: return
+
+  $TileMap.set_cell(0, Vector2(-2, 0), 3, Vector2i(0, 7))
+  $TileMap.set_cell(0, Vector2(-1, 0), 3, Vector2i(1, 7))
+  $TileMap.set_cell(0, Vector2(0, 0), 3, Vector2i(2, 7))
+  $TileMap.set_cell(0, Vector2(1, 0), 3, Vector2i(1, 7))
+  $TileMap.set_cell(0, Vector2(2, 0), 3, Vector2i(3, 7))
+
+  await get_tree().create_timer(0.1).timeout
+
+  invicible_animation()
+
+func get_default_animation():
+  animation_changed = false
+
+  $TileMap.set_cell(0, Vector2(-2, 0), 3, Vector2i(0, 3))
+  $TileMap.set_cell(0, Vector2(-1, 0), 3, Vector2i(1, 3))
+  $TileMap.set_cell(0, Vector2(0, 0), 3, Vector2i(2, 3))
+  $TileMap.set_cell(0, Vector2(1, 0), 3, Vector2i(1, 3))
+  $TileMap.set_cell(0, Vector2(2, 0), 3, Vector2i(3, 3))
 
 func die():
   $TileMap.visible = false

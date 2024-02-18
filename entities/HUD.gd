@@ -10,7 +10,7 @@ func _ready():
   $PauseMenu.visible = false
   $FinishedMenu.visible = false
   $PainAvatar.visible = false
-  $AudioTrack.play()
+  # TODO: $AudioTrack.play()
 
   $Transition.start_end_transition()
 
