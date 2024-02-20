@@ -37,7 +37,7 @@ func _process(_delta):
 
   if not animate and input_x != 0:
     if cursor_position.x == 0 and input_x == -1: return
-    if cursor_position.x == LevelsState.levels - 1 and input_x == 1: return
+    if cursor_position.x == LevelsState.levels_completed and input_x == 1: return
 
     $Cursor.get_node('Sprite').scale.x = -input_x
 
