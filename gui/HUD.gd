@@ -12,8 +12,6 @@ func _ready():
   $PainAvatar.visible = false
   # TODO: $AudioTrack.play()
 
-  $Transition.start_end_transition()
-
 func _process(_delta):
   if Input.is_action_just_pressed('x') and !player.is_died:
     $PauseMenu.toggle()

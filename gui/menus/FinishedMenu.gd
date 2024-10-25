@@ -1,13 +1,10 @@
 extends Menu
 
 @export var transition: Transition
-
-var current_level: StringName
+@onready var master_level = $"/root/MasterLevel"
 
 func _ready():
   super._ready()
-
-  current_level = get_tree().current_scene.name
 
 func _process(delta):
   if not controls or not visible: return
@@ -19,12 +16,12 @@ func _process(delta):
 
     if current_item_node.text == 'Next Level':
       transition.start_transition(func():
-        get_tree().change_scene_to_file("res://scenes/levels/Level%s.tscn" % (int(current_level.replace('Level', '')) + 1))
+        $"/root/MasterLevel".load_next_level()
       )
     elif current_item_node.text == 'Restart':
-      transition.start_transition(func(): get_tree().reload_current_scene())
+      transition.start_transition(func(): master_level.reload_current_level())
     elif current_item_node.text == 'Exit':
       transition.start_transition(func():
-        get_tree().change_scene_to_file("res://scenes/Levels.tscn")
+        get_tree().change_scene_to_file("res://scenes/Selector.tscn")
       )
 

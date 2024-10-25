@@ -1,17 +1,17 @@
 [gd_scene load_steps=10 format=3 uid="uid://civvkbqah8wwy"]
 
-[ext_resource type="Script" path="res://entities/HUD.gd" id="1_4q5wg"]
+[ext_resource type="Script" path="res://gui/HUD.gd" id="1_1hrte"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_xl6ds"]
-[ext_resource type="PackedScene" uid="uid://b80rljogo2nyj" path="res://gui/PauseMenu.tscn" id="3_lfjch"]
-[ext_resource type="PackedScene" uid="uid://cvqtkrgdyf8e4" path="res://gui/FinishedMenu.tscn" id="4_4b1ri"]
-[ext_resource type="Script" path="res://gui/FinishedMenu.gd" id="5_4ppqt"]
+[ext_resource type="PackedScene" uid="uid://b80rljogo2nyj" path="res://gui/menus/PauseMenu.tscn" id="3_lfjch"]
+[ext_resource type="PackedScene" uid="uid://cvqtkrgdyf8e4" path="res://gui/menus/FinishedMenu.tscn" id="4_4b1ri"]
+[ext_resource type="Script" path="res://gui/menus/FinishedMenu.gd" id="5_4ppqt"]
 [ext_resource type="PackedScene" uid="uid://yp713oagyxrr" path="res://gui/Transition.tscn" id="6_l6r2y"]
 [ext_resource type="AudioStream" uid="uid://dr5aieik13tef" path="res://assets/sounds/loose2.wav" id="7_xplxt"]
 [ext_resource type="AudioStream" uid="uid://cmd7p2pt7nsev" path="res://assets/sounds/win.wav" id="8_4rq4w"]
 [ext_resource type="AudioStream" uid="uid://d1o1h237iojws" path="res://assets/sounds/audio1.ogg" id="9_4wjf1"]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_4q5wg")
+script = ExtResource("1_1hrte")
 
 [node name="Health" type="TileMap" parent="."]
 position = Vector2(41, 137)

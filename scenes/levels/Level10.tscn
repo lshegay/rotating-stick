@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmlt7r4mhs1v0"]
 
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="1_klwgd"]
-[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/StartZone.tscn" id="2_echlg"]
-[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/FinishZone.tscn" id="3_4l760"]
+[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/zones/StartZone.tscn" id="2_echlg"]
+[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/zones/FinishZone.tscn" id="3_4l760"]
 [ext_resource type="PackedScene" uid="uid://c7dpho28qilem" path="res://entities/Spring.tscn" id="4_5dssq"]
-[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://entities/Camera.tscn" id="5_cs7xv"]
+[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://gui/Camera.tscn" id="5_cs7xv"]
 [ext_resource type="PackedScene" uid="uid://dhfus8oroousn" path="res://entities/Player.tscn" id="6_ltw1o"]
 [ext_resource type="PackedScene" uid="uid://civvkbqah8wwy" path="res://gui/HUD.tscn" id="7_p371m"]
 

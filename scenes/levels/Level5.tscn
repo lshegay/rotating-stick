@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://kofot8li3ygq"]
+[gd_scene load_steps=7 format=3 uid="uid://kofot8li3ygq"]
 
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="1_n7fc3"]
-[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/StartZone.tscn" id="2_ejodw"]
-[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/FinishZone.tscn" id="3_afpem"]
+[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/zones/StartZone.tscn" id="2_ejodw"]
+[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/zones/FinishZone.tscn" id="3_afpem"]
 [ext_resource type="PackedScene" uid="uid://c7dpho28qilem" path="res://entities/Spring.tscn" id="4_kwa4e"]
-[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://entities/Camera.tscn" id="5_lwwoy"]
+[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://gui/Camera.tscn" id="5_lwwoy"]
 [ext_resource type="PackedScene" uid="uid://dhfus8oroousn" path="res://entities/Player.tscn" id="6_ksej7"]
-[ext_resource type="PackedScene" uid="uid://civvkbqah8wwy" path="res://gui/HUD.tscn" id="7_rqx5p"]
 
 [node name="Level5" type="Node2D"]
 
@@ -20,7 +19,6 @@ layer_0/tile_data = PackedInt32Array(65537, 262147, 1, 2, 196611, 1, 65538, 3276
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array(1, 458755, 0, 65537, 65539, 0, 131073, 65539, 0, 196609, 65539, 0, 262145, 65539, 0, 327681, 65539, 0, 393217, 65539, 0, 458753, 327683, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 458762, 3, 0, 11, 786435, 1, 65548, 786435, 1, 131085, 786435, 1, 65547, 983043, 1, 131084, 983043, 1, 458763, 786435, 1, 524300, 786435, 1, 524299, 983043, 1, 589836, 983043, 1, 589837, 786435, 1, 655373, 983043, 1, 196621, 983043, 1, 655374, 3, 0, 655375, 3, 0, 655376, 393219, 0, 720912, 65539, 0, 786448, 327683, 0, 655382, 458755, 0, 720918, 65539, 0, 786454, 262147, 0, 655383, 3, 0, 655384, 3, 0, 655385, 3, 0, 720922, 327683, 0, 720927, 262147, 0, 655386, 393219, 0, 655391, 65539, 0, 589855, 65539, 0, 524319, 65539, 0, 458783, 65539, 0, 393247, 65539, 0, 327711, 65539, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 720923, 3, 0, 720924, 3, 0, 720925, 3, 0, 720926, 3, 0, 196622, 3, 0, 196623, 3, 0, 196624, 3, 0, 196625, 786435, 1, 262161, 983043, 1, 262162, 3, 0, 262163, 3, 0, 262164, 3, 0, 262165, 3, 0, 262166, 3, 0, 262167, 3, 0, 262168, 3, 0, 262169, 3, 0, 262175, 65539, 0, 196639, 65539, 0, 131103, 65539, 0, 65567, 65539, 0, 31, 65539, 0, 262170, 262147, 0, 196634, 65539, 0, 131098, 65539, 0, 65562, 393219, 0, -65505, 786435, 1, -131042, 786435, 1, -196579, 786435, 1, -65506, 983043, 1, -131043, 983043, 1, -196580, 983043, 1, -262117, 983043, 1, -262116, 786435, 1, -327653, 786435, 1, -327654, 3, 0, -327655, 3, 0, -327656, 3, 0, -327657, 3, 0, -327658, 327683, 0, 65561, 3, 0, 65560, 3, 0, 65559, 917507, 1, 65555, 786435, 1, 65554, 983043, 1, 17, 983043, 1, 18, 786435, 1, -65519, 65539, 0, 196627, 327683, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196631, 262147, 0, 131091, 65539, 0, 131095, 65539, 0, -655343, 917507, 1, -655342, 851971, 1, -720878, 917507, 1, -786413, 917507, 1, -851948, 917507, 1, -589807, 65539, 0, -720877, 851971, 1, -786412, 851971, 1, -393194, 458755, 0, -393193, 3, 0, -393192, 3, 0, -393191, 3, 0, -393190, 3, 0, -393189, 3, 0, -393188, 3, 0, -393187, 3, 0, -393186, 3, 0, -393185, 3, 0, -851946, 3, 0, -851945, 3, 0, -851944, 3, 0, -851943, 3, 0, -851942, 3, 0, -851941, 3, 0, -851940, 3, 0, -851939, 3, 0, -851938, 3, 0, -851937, 3, 0, -458720, 65539, 0, -524256, 65539, 0, -589792, 65539, 0, -655328, 65539, 0, -720864, 65539, 0, -786400, 65539, 0, -851947, 3, 0, -393184, 262147, 0, -851936, 393219, 0, -524271, 65539, 0, -458735, 65539, 0, -393199, 65539, 0, -327663, 65539, 0, -262127, 65539, 0, -196591, 65539, 0, -131055, 65539, 0)
 layer_2/name = "springs"
-layer_2/tile_data = PackedInt32Array()
 
 [node name="Zones" type="Node2D" parent="Level"]
 
@@ -59,11 +57,4 @@ player = NodePath("../Player")
 position = Vector2(79, 63)
 collision_mask = 38
 
-[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_rqx5p")]
-player = NodePath("../Player")
-
 [connection signal="collided_wall" from="Player" to="Camera" method="on_player_collided_wall"]
-[connection signal="collided_wall" from="Player" to="HUD" method="on_player_collided_wall"]
-[connection signal="died" from="Player" to="HUD" method="on_player_died"]
-[connection signal="finished" from="Player" to="HUD" method="on_player_finished"]
-[connection signal="health_changed" from="Player" to="HUD" method="on_player_health_changed"]

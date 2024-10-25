@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqiw02w5r4oyi"]
 
-[ext_resource type="Script" path="res://entities/FinishZone.gd" id="1_s8v6u"]
+[ext_resource type="Script" path="res://entities/zones/FinishZone.gd" id="1_s8v6u"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_1rihj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6nuq"]

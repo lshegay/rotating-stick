@@ -10,7 +10,7 @@ func _ready():
   start_pos = $ButtonSelected.position
   render_menu()
 
-func _process(delta):
+func _process(_delta):
   if not controls or not visible: return
 
   if Input.is_action_just_pressed("up"):

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c21gorwbpmj0r"]
+[gd_scene load_steps=7 format=3 uid="uid://c21gorwbpmj0r"]
 
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="1_4cx36"]
-[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/StartZone.tscn" id="2_733wr"]
-[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/FinishZone.tscn" id="3_t6ryv"]
+[ext_resource type="PackedScene" uid="uid://cw7tosxaqtidq" path="res://entities/zones/StartZone.tscn" id="2_733wr"]
+[ext_resource type="PackedScene" uid="uid://cqiw02w5r4oyi" path="res://entities/zones/FinishZone.tscn" id="3_t6ryv"]
 [ext_resource type="PackedScene" uid="uid://c7dpho28qilem" path="res://entities/Spring.tscn" id="4_nlcgl"]
-[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://entities/Camera.tscn" id="5_2uq1q"]
+[ext_resource type="PackedScene" uid="uid://cslo232luybk" path="res://gui/Camera.tscn" id="5_2uq1q"]
 [ext_resource type="PackedScene" uid="uid://dhfus8oroousn" path="res://entities/Player.tscn" id="6_0brtc"]
-[ext_resource type="PackedScene" uid="uid://civvkbqah8wwy" path="res://gui/HUD.tscn" id="7_weefn"]
 
 [node name="Level4" type="Node2D"]
 
@@ -49,11 +48,4 @@ player = NodePath("../Player")
 position = Vector2(79, 63)
 collision_mask = 38
 
-[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_weefn")]
-player = NodePath("../Player")
-
 [connection signal="collided_wall" from="Player" to="Camera" method="on_player_collided_wall"]
-[connection signal="collided_wall" from="Player" to="HUD" method="on_player_collided_wall"]
-[connection signal="died" from="Player" to="HUD" method="on_player_died"]
-[connection signal="finished" from="Player" to="HUD" method="on_player_finished"]
-[connection signal="health_changed" from="Player" to="HUD" method="on_player_health_changed"]

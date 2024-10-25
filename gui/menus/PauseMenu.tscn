@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b80rljogo2nyj"]
 
-[ext_resource type="Script" path="res://gui/PauseMenu.gd" id="1_07upf"]
+[ext_resource type="Script" path="res://gui/menus/PauseMenu.gd" id="1_07upf"]
 [ext_resource type="TileSet" uid="uid://cvb8htd1db38o" path="res://assets/Tileset.tres" id="2_sy6fb"]
 [ext_resource type="FontFile" uid="uid://d1bjfonhihmmj" path="res://assets/fonts/Bongo-8 Mono.ttf" id="3_51ad0"]
 [ext_resource type="AudioStream" uid="uid://dqhjbx7uvqeg4" path="res://assets/sounds/keyboard.wav" id="4_dhf4w"]
